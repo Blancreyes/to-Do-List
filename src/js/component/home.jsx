@@ -14,9 +14,9 @@ const Home = () =>{
         
     }
 
-    const deleteTask = (deletedTask) =>{
-        const diminishedArray = arrayEntry.filter((task) => task !== deletedTask)
-        setArrayEntry(diminishedArray)
+    const deleteTask = (filteredTasks) =>{
+        const filteredArray = arrayEntry.filter((entry) => entry !== filteredTasks)
+        setArrayEntry(filteredArray)
     }
 
     return (
@@ -45,11 +45,12 @@ const Home = () =>{
         
              
             <div >
-                        <ul class="list-group list-group-numbered">{arrayEntry.map ((task) => 
+                        <ul class="list-group list-group-numbered">{arrayEntry.map ((entry) => 
                             <li class="list-group-item d-flex">
-                                <span style={{width:"90%"}}>{task}</span>
+                                <span style={{width:"90%"}}>{entry}</span>
                                 <button class="text-align-right"
-                                    onClick={() => deleteTask(task)}
+                                    
+                                    onClick={() => deleteTask(entry)}
                                 >Delete</button>
                             </li>)
                         }
